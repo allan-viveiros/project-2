@@ -1,3 +1,25 @@
+import app from "./firebase";
+
+//Import the sdk for the rtd product
+//import the getDatabse and ref nnames export fromt the RTD module
+import {
+    getDatabase,
+    ref
+  } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+  
+  //Initailize our specific db using the configured app
+  
+  // Initialize Database content using the configured app
+  const database = getDatabase(firebase);
+  //Cretae a specific reference to the root of my db
+  //This is the representation of our DB (this is how we hook into the DB and update and interact with it)
+  const dbRef = ref(database);
+
+
+
+
+
+
 
 // Pseudo Code
 
