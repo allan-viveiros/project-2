@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "avatar": "test.png",
+      "comment": "France is a beautiful country",
+      "country": "france",
+      "email": "bleble",
+      "name": "adrien"
+    },
+    {
+      "avatar": "test.png",
+      "comment": "Brazil is amazing",
+      "country": "france",
+      "email": "bleble",
+      "name": "adrien"
+    },
+    {
+      "avatar": "test.png",
+      "comment": "I love Canada",
+      "country": "france",
+      "email": "bleble",
+      "name": "adrien"
+    },
+    {
+      "avatar": "test.png",
+      "comment": "Peru is great",
+      "country": "france",
+      "email": "bleble",
+      "name": "Lorenzo"
+    }
+  ]
+}
