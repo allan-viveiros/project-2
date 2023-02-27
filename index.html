@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/plane-icon1-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <h1>Tips for trips</h1>
+        <p>
+          Welcome to tips for trips webpage! Where you can share your favorites
+          things about the trips you've done arounf the world!
+        </p>
+      </div>
+    </header>
+    <main>
+      <section class="userPost">
+        <div class="wrapper">
+          <ul>
+            <li>
+              <div class="cardContainer">
+                <figure>
+                  <img src="./assets/anonymous.png" alt="" />
+                  <figcaption>Username</figcaption>
+                </figure>
+                <h2>Canada</h2>
+                <p>user comments</p>
+                <p>date and time</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="userForm">
+        <div class="wrapper">
+            <div class="leftPanel">
+                <p> Explananation how to use the form</p>
+            </div>
+            <div class="form">
+                <form action="">
+                    <label for="userName" class="sr-only" >User Name</label>
+                    <input type="text" name="userName" id="userName" placeholder="User Name">
+                    <label for="userEmail" class="sr-only">User Email</label>
+                    <input type="email" name="userEmail" id="userEmail" placeholder="User Email">
+                    <label for="countries" class="sr-only">Select a country</label>
+                    <select name="countries" id="countries">
+                        <option value="Canada">Canada</option>
+                    </select>
+                    <label for="userComments" class="sr-only" > Leave your comment here</label>
+                    <textarea name="userComments" id="userComments" cols="30" rows="10" placeholder="Leave your comment here"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="rightPanel">
+            </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+        <p>Copyright JUNO 2023</p>
+    </footer>
+  </body>
 </html>
