@@ -4,9 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project2</title>
+    <title>Amazing Trip</title>
+    <link rel="icon" type="image/x-icon" href="./images/trip-icon-2.png">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <header>
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li>let your comment</li>
+                </ul>
+            </nav>
+
+            <div class="headerContainer">
+                <h1>Welcome to the Amazing trip portal</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam rem officiis saepe necessitatibus sunt vel nihil quae culpa maxime. Doloremque vel nulla culpa soluta officia inventore placeat at nobis qui.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="commentsBoard">
+            <div class="wrapper">
+                <!-- user's comment card -->
+                <article class="postContainer">
+                    <figure>
+                        <img src="./images/anonymous.png" alt="USER-IMAGE">
+                        <p>USER NAME</p>
+                    </figure>                    
+                    <h2>Country</h2>
+                    <div class="postText">
+                        <span>date/time</span>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, soluta.</p>
+                    </div>
+                </article>
+
+                <!-- user's comment card -->
+                <article class="postContainer">
+                    <figure>
+                        <img src="./images/anonymous.png" alt="USER-IMAGE">
+                        <p>USER NAME</p>
+                    </figure>                    
+                    <h2>Country</h2>
+                    <div class="postText">
+                        <span>date/time</span>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, soluta.</p>
+                    </div>
+                </article>
+
+                <!-- user's comment card -->
+                <article class="postContainer">
+                    <figure>
+                        <img src="./images/anonymous.png" alt="USER-IMAGE">
+                        <p>USER NAME</p>
+                    </figure>                    
+                    <h2>Country</h2>
+                    <div class="postText">
+                        <span>date/time</span>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, soluta.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="commentsInput">
+            <div class="wrapper">
+                <div class="leftPanel">
+                    <h2>LEFT PANEL</h2>
+                </div>
+
+                <div class="centralPanel">
+                    <form action="" id="commentForm">
+                        <label for="userName" class="sr-only">user name</label>
+                        <input type="text" id="userName" placeholder="Name">
+                        
+                        <label for="userEmail" class="sr-only">user email</label>
+                        <input type="email" id="userEmail" placeholder="Email">
+                        
+                        <label for="contries" class="sr-only"></label>
+                        <select name="countries" id="countries" >
+                            <option value="" selected>Select an option</option>
+                            <option value="">option 1</option>
+                            <option value="">option 2</option>
+                            <option value="">option 3</option>
+                            <option value="">option 4</option>
+                        </select>
+
+                        <label for=""></label>
+                        <textarea name="comment" id="comment" placeholder="Let your comment here" ></textarea>
+
+                        <button>submit</button>
+                    </form>
+                </div>
+
+                <div class="rightPanel">
+                    <h2>RIGHT PANEL</h2>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrapper">
+            <p>Copyrights © 2023</p>
+        </div>
+    </footer>
+
+    <script type="module" src="./script.js"></script>    
 </body>
 </html>
