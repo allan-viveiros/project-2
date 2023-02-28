@@ -1,0 +1,22 @@
+
+header {    
+    background-image: url("../assets/dariusz-sankowski-3OiYMgDKJ6k-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }    
+}
+
+

@@ -1,0 +1,54 @@
+
+.userForm {
+    padding: 50px 0;
+}
+
+.flexUserForm {
+    display: flex;
+    justify-content: space-between;
+    
+
+    .leftPanel {        
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        width: 20%;
+    }
+
+    .form {
+        width: 50%;    
+        
+        .flexForm {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input {
+            width: 49%;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 5px;
+            resize: none;
+        }
+
+        button {
+            width: 40%;
+        }
+    }
+    
+    .rightPanel {        
+        width: 20%;     
+
+    }
+}
+
+
