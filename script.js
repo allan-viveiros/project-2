@@ -1,16 +1,14 @@
-import app from "./firebase";
+import app from "./firebase.js";
+
 //Import the sdk for the rtd product
-//import the getDatabse and ref nnames export fromt the RTD module
 import {
     getDatabase,
     ref
   } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-  
-  //Initailize our specific db using the configured app
-  
+   
   // Initialize Database content using the configured app
-  const database = getDatabase(firebase);
-  //Cretae a specific reference to the root of my db
+  const database = getDatabase(app);
+  //Create a specific reference to the root of my db
   //This is the representation of our DB (this is how we hook into the DB and update and interact with it)
   const dbRef = ref(database);
 
@@ -51,7 +49,10 @@ import {
 
         // Step 5 -> Add event listener for the form submit button, to get the inputs and shows on the proper section 
              // Prevent the submit from causing the page to refresh 
-            // Get what the user wrote in the all inputs.
-            // Use Firebase's get() function to get a snapshot of current list of user's card in the database.
+             // Get what the user wrote in the all inputs.
+             // Use Firebase's get() function to get a snapshot of current list of user's card in the database.
              // Use Firebase's update() function to send the updated list of user's card to Firebase.
 
+
+
+             
