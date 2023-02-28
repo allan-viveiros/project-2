@@ -16,7 +16,7 @@ import {
 
 
 
-// PSEUDO CODE
+// PSEUDO CODE (test)
 
 //FIREBASE SETUP
         // Step 1 -> Create a file (firebase.js) to configure and export the Firebase object.
