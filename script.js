@@ -1,3 +1,9 @@
+// PSEUDO CODE 
+
+//FIREBASE SETUP
+        // Step 1 -> Create a file (firebase.js) to configure and export the Firebase object.
+        // Step 2 -> Import the database object, and any required Firebase modules at the top of the main app file (app.js)
+
 import app from "./firebase";
 //Import the sdk for the rtd product
 //import the getDatabse and ref nnames export fromt the RTD module
@@ -9,29 +15,16 @@ import {
   //Initailize our specific db using the configured app
   
   // Initialize Database content using the configured app
-  const database = getDatabase(firebase);
+  const database = getDatabase(app);
   //Cretae a specific reference to the root of my db
   //This is the representation of our DB (this is how we hook into the DB and update and interact with it)
   const dbRef = ref(database);
-
-
-
-// PSEUDO CODE
-
-//FIREBASE SETUP
-        // Step 1 -> Create a file (firebase.js) to configure and export the Firebase object.
-        // Step 2 -> Import the database object, and any required Firebase modules at the top of the main app file (app.js)
-
-//HTML document:
-        // Step 1 -> Create a landing page with the heading and title "Amazing Trip" and a <p> explain about the page.
-        // Step 2 -> create a form to receive the user inputs "name, email, Country visited, comments, avatar preset img" 
-        // Step 3 -> Create a section to receive the user's input in a UL
-
 
 //JAVASCRIPT:
 
         // Step 1 -> Use document.querySelector() to get all the JS objects:
              // One that points to the UL where the user card will be displayed.
+             const ulElement
              // One that points to the text input where users will add his user name.
              // One that points to the text input where users will add his email.
              // One that points to the select input where users will add his choice of country.
