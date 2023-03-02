@@ -1,43 +1,57 @@
 
 .userPost {
-    background-color: gray;
-    padding: 50px 0;
-}
+    // background-color: #3D5467;
+    padding: 50px 0;    
 
-ul {
-    display: flex;  
-    list-style: none;
-    justify-content: space-between;
-    
-    li {
-        width: calc(( 100% / 3 ) - 30px);
-        border: 1px solid black;    
-        padding: 10px;
-        border-radius: 20px;
-        background-color: white;
+    ul {
+        display: flex;  
+        list-style: none;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 50px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.322);
         
-        .flexTop {
-            display: flex;
-            justify-content: space-between;
-
-            h2 {
-                margin-right: 20px;
-            }
-
-            figure {
-                width: 50px;
+        li {
+            width: calc(( 100% / 3 ) - 30px);
+            // border: 1px solid black;    
+            padding: 10px;
+            border-radius: 20px;
+            background-color: rgb(233, 233, 233);
+            height: fit-content;
+            box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.438);
+            
+            
+            .flexTop {
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-        }
+                justify-content: space-between;
+                // align-items: center;
 
-        .comment {
-            border: 1px solid black;
-            padding: 20px;
+                h2 {
+                    margin-right: 20px;
+                    height: fit-content;                    
+                }
+
+                figure {
+                    width: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px 0 20px 20px;
+
+                    img {
+                        
+                        border: 1px solid #706563;
+                        border-radius: 50%;                        
+                    }
+                }
+            }
+
+            .comment {
+                // border: 1px solid black;
+                padding: 20px;                
+                width: 100%;
+                background-color: white;                
+            }            
         }
-        
     }
 }
-
-

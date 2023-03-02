@@ -294,6 +294,7 @@ header p {
   text-align: center;
   padding: 10px;
   width: 20%;
+  border: 1px solid blue;
 }
 .flexUserForm .form {
   width: 50%;
@@ -324,14 +325,24 @@ header p {
 }
 .flexUserForm .rightPanel {
   width: 20%;
+  border: 1px solid red;
+}
+.flexUserForm .rightPanel .imageContainer {
+  width: 100%;
+  height: 100%;
+}
+.flexUserForm .rightPanel .imageContainer img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: right;
+     object-position: right;
 }
 
 .userPost {
-  background-color: gray;
   padding: 50px 0;
 }
-
-ul {
+.userPost ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -339,15 +350,24 @@ ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.322);
 }
-ul li {
+.userPost ul li {
   width: calc(33.3333333333% - 30px);
-  border: 1px solid black;
   padding: 10px;
   border-radius: 20px;
-  background-color: white;
+  background-color: rgb(233, 233, 233);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.438);
+          box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.438);
 }
-ul li .flexTop {
+.userPost ul li .flexTop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -355,10 +375,13 @@ ul li .flexTop {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-ul li .flexTop h2 {
+.userPost ul li .flexTop h2 {
   margin-right: 20px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
-ul li .flexTop figure {
+.userPost ul li .flexTop figure {
   width: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -370,10 +393,16 @@ ul li .flexTop figure {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 10px 0 20px 20px;
 }
-ul li .comment {
-  border: 1px solid black;
+.userPost ul li .flexTop figure img {
+  border: 1px solid #706563;
+  border-radius: 50%;
+}
+.userPost ul li .comment {
   padding: 20px;
+  width: 100%;
+  background-color: white;
 }
 
 footer {
