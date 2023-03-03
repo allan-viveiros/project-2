@@ -12,6 +12,7 @@ import {
   onValue,
   push,
   update,
+  get
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 // Initialize Database content using the configured app
@@ -95,7 +96,6 @@ onValue(dbRef, function (data) {
 });
 
 // Step 3 -> Add event listener for the form submit button, to get the inputs and shows on the proper section
-
 form.addEventListener("submit", function (event) {
   // Prevent the submit from causing the page to refresh
   event.preventDefault();
@@ -164,3 +164,34 @@ ulElement.addEventListener("click", function (e) {
     update(updateRef, newLike);
   }
 });
+
+////////************ SECOND PART  */
+const getCountry = ref(database, `/users`);
+get(getCountry)
+.then(snapshot => {  
+  const data = snapshot.val();
+  console.log(data);
+
+  for(let item in data) {
+    // console.log(data[item].country);
+    if(data[item].country === "Australia") {
+      const newTodo = {
+        avatar: data[item].avatar,
+        comment: data[item].comment,
+        like: data[item].like
+      }
+
+      console.log(newTodo);
+    }
+  }
+})
+// TODO
+// -- On footer 
+// 	-- Add "Created at Juno College"
+
+// -- On scripts.js
+// 	-- add namespace
+// 	-- try handle eros with throw instead if
+	
+// -- HTML
+// 	-- Review semantic elements 

@@ -485,6 +485,16 @@ footer {
   header p {
     font-size: 1rem;
   }
+  .userPost {
+    padding: 50px 0;
+  }
+  .userPost ul {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .userPost ul li {
+    width: 80%;
+  }
   .userForm {
     padding: 0;
   }
@@ -496,7 +506,7 @@ footer {
   }
   .flexUserForm .leftPanel,
   .flexUserForm .form,
-  .flexUserForm .rightpanel {
+  .flexUserForm .rightPanel {
     width: 100%;
     margin-bottom: 50px;
   }
