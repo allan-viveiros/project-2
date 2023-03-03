@@ -260,7 +260,6 @@ header {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 70vh;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -272,6 +271,7 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-bottom: 50px;
 }
 header h1 {
   font-size: 6rem;
