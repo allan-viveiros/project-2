@@ -82,7 +82,7 @@ onValue(dbRef, function (data) {
       comments.textContent = `${userCard[dataItem].comment}`;
       // Append divs and comment to the LI
       newLi.append(divFlex, divFlexLike, comments);
-      //Append the figurr and h2 to their parent div
+      //Append the figure and h2 to their parent div
       divFlex.append(figure, country);
       //Append the date/time and like to their parent div
       divFlexLike.append(dateTime, likeButton);
@@ -144,7 +144,7 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-// Step 4 -> Add event listener for the UL element (targetting the like button), to increase the number of like of the comment
+// Step 4 -> Add event listener for the UL element (targeting the like button), to increase the number of like of the comment
 ulElement.addEventListener("click", function (e) {
   // Checking if the click happen on the button
   if (e.target.tagName === "I") {
