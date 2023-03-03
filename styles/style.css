@@ -247,8 +247,16 @@ img {
   width: 100%;
 }
 
+@font-face {
+  font-family: skyfont;
+  src: url("../assets/skyfont/Skyfont-NonCommercial.otf");
+}
+p, figcaption, input, select, textarea, button {
+  font-family: "Maven Pro", sans-serif;
+}
+
 header {
-  background-image: url("../assets/dariusz-sankowski-3OiYMgDKJ6k-unsplash.jpg");
+  background-image: url("../assets/delfi-de-la-rua-vfzfavUZmfc-unsplash.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -266,7 +274,9 @@ header {
           justify-content: center;
 }
 header h1 {
-  font-size: 4rem;
+  font-size: 6rem;
+  font-family: skyfont;
+  letter-spacing: 5px;
 }
 header p {
   font-size: 2rem;
@@ -294,6 +304,9 @@ header p {
   text-align: center;
   padding: 10px;
   width: 20%;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid grey;
 }
 .flexUserForm .form {
   width: 50%;
@@ -309,45 +322,77 @@ header p {
 .flexUserForm .form input {
   width: 49%;
   margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 .flexUserForm .form select {
   width: 100%;
   margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 .flexUserForm .form textarea {
   width: 100%;
   margin-bottom: 5px;
   resize: none;
+  border-radius: 10px;
+  padding: 10px;
 }
 .flexUserForm .form button {
   width: 40%;
+  border-radius: 10px;
+  padding: 10px;
 }
 .flexUserForm .rightPanel {
   width: 20%;
 }
-
-.userPost {
-  background-color: gray;
-  padding: 50px 0;
+.flexUserForm .rightPanel .imageContainer {
+  width: 100%;
+  height: 100%;
+}
+.flexUserForm .rightPanel .imageContainer img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: right;
+     object-position: right;
+  border-radius: 10px;
 }
 
-ul {
+.userPost {
+  padding: 50px 0;
+}
+.userPost ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   list-style: none;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.322);
 }
-ul li {
+.userPost ul li {
   width: calc(33.3333333333% - 30px);
-  border: 1px solid black;
+  min-width: 300px;
   padding: 10px;
   border-radius: 20px;
-  background-color: white;
+  background-color: rgb(233, 233, 233);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.438);
+          box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.438);
+  margin-bottom: 30px;
+  background-image: url("../assets/passport.png");
 }
-ul li .flexTop {
+.userPost ul li .flexTop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -355,11 +400,18 @@ ul li .flexTop {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-ul li .flexTop h2 {
-  margin-right: 20px;
+.userPost ul li .flexTop h2 {
+  padding: 20px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 2rem;
+  text-align: right;
+  font-family: "Caveat", cursive;
 }
-ul li .flexTop figure {
+.userPost ul li .flexTop figure {
   width: 50px;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -370,14 +422,27 @@ ul li .flexTop figure {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 10px 0 20px 20px;
 }
-ul li .comment {
-  border: 1px solid black;
+.userPost ul li .flexTop figure figcaption {
+  position: relative;
+  top: 5px;
+}
+.userPost ul li .flexTop figure img {
+  border: 1px solid #706563;
+  border-radius: 50%;
+}
+.userPost ul li .comment {
+  border: 1px solid red;
   padding: 20px;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
 }
 
 footer {
   text-align: center;
   background-color: black;
   color: white;
+  padding: 10px;
 }
