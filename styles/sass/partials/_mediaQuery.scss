@@ -1,0 +1,44 @@
+//----------------------Here starts the media query--------------//
+//Only one breakpoint need
+@media (max-width: 768px) {
+  // Header media query
+  //Reducing the size of the text
+  header {
+    p {
+      font-size: 1rem;
+    }
+  }
+  // End on header media query
+
+  //Form section media query
+  .userForm {
+    padding: 0;
+  }
+  .flexUserForm {
+    // Using flex to display element on top of each other
+    flex-direction: column;
+    .leftPanel,
+    .form,
+    .rightpanel {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+    .leftPanel{
+      background-size: auto;
+      background-position: center;
+    }
+    //Using flex to display name and email on top of each other
+    .flexForm {
+      flex-direction: column;
+      input {
+        width: 100%;
+      }
+    }
+    .form {
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+//----------------------Here ends the media query--------------//
