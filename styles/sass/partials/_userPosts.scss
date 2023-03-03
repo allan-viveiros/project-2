@@ -1,87 +1,101 @@
+// -----------------Here starts the first section (user's card styling---------------//
 
+// Global styling of the section
 .userPost {
-    // background-color: #3D5467;
-    padding: 50px 0;    
+  // background-color: #3D5467;
+  padding: 50px 0;
+  // Using flex to display every card side by side
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.322);
 
-    ul {
-        display: flex;  
-        flex-wrap: wrap;
-        list-style: none;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 50px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.322);
-        
-        
-        li {
-            width: calc(( 100% / 3 ) - 30px);
-            min-width: 300px;   
-            padding: 10px;
-            border-radius: 20px;
-            background-color: rgb(233, 233, 233);
-            height: fit-content;
-            box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.438);
-            margin-bottom: 30px;
-            background-image: url("../assets/passport.png");
-            
-            .flexTop {
-                display: flex;
-                justify-content: space-between;
-                // align-items: center;
-
-                h2 {
-                    padding: 20px;
-                    height: fit-content; 
-                    font-size: 2rem;  
-                    text-align: right;  
-                    font-family: 'Caveat', cursive;
-                   
-                             
-                }
-
-                figure {
-                    width: 50px;
-                    height: 70px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    margin: 10px 0 20px 20px;
-                    figcaption {
-                        position: relative;
-                        top: 5px;
-                    }
-                    
-                    img {
-                        border: 1px solid #706563;
-                        border-radius: 50%;
-                    }
-                }
-            }
-
-            .divFlexLike {
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-between;
-
-                span {
-                    display: flex;
-                    flex-direction: column;
-                    margin-left: 5px;
-                    align-items: flex-end;
-                    
-                    i {
-                        cursor: pointer;
-                    }
-                }
-            }
-            
-            .comment {
-                 border: 1px solid red;
-                padding: 20px;                
-                width: 100%;
-                background-color: white;  
-                border-radius: 20px;              
-            }            
-        }
+    //Styling the card
+    li {
+      width: calc((100% / 3) - 30px);
+      min-width: 300px;
+      padding: 15px;
+      border-radius: 20px;
+      background-color: rgb(233, 233, 233);
+      height: fit-content;
+      box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.438);
+      margin-bottom: 30px;
+      background-image: url("../assets/passport.png");
     }
+  }
+
+  // Using flex to display avatar+ user name and country side by side
+  .flexTop {
+    display: flex;
+    justify-content: space-between;
+
+    figure {
+      width: 50px;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 0 20px 20px;
+      //   Styling user name
+      figcaption {
+        position: relative;
+        top: 5px;
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      // Styling the avatar
+      img {
+        border: 1px solid #706563;
+        border-radius: 50%;
+        padding: 3px;
+      }
+    }
+    // Styling the country name
+    h2 {
+      padding: 20px;
+      height: fit-content;
+      font-size: 3rem;
+      text-align: right;
+      font-family: "Caveat", cursive;
+      text-shadow: 1px 1px 5px #ab7f4d;
+    }
+  }
+
+  // Styling the date/time and like button part
+  // Flex to display them side by side
+  .divFlexLike {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    // Flex to display like button and like counter on top of each other
+    span {
+      display: flex;
+      flex-direction: column;
+      margin-left: 5px;
+      align-items: flex-end;
+      font-weight: bold;
+
+      i {
+        cursor: pointer;
+        font-size: 1.3rem;
+      }
+    }
+  }
+  // Styling the comment section
+  .comment {
+    border: 3px solid #ab7f4d;
+    padding: 15px;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+  }
 }
+
+// -----------------Here ends the first section (user's card styling---------------//

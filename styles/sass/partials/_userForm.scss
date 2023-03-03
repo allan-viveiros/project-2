@@ -1,80 +1,72 @@
+//----------------------Here starts the for section styling--------------//
 
+// Global section styling
 .userForm {
-    padding: 50px 0;
+  padding: 50px 0;
 }
-
+// Using flex to display every element side by side
 .flexUserForm {
+  display: flex;
+  justify-content: space-between;
+}
+// Styling the text on the left (using flex to center it horizontally and vertically)
+.leftPanel {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  width: 20%;
+  border-radius: 10px;
+  padding: 10px;
+  background-image: url("../assets/passport2.png");
+  background-position: center;
+
+}
+// Styling the form
+.form {
+  width: 50%;
+  // Using flex to display name and email side by side
+  .flexForm {
     display: flex;
     justify-content: space-between;
-    
+  }
+  // Styling every element of the form
+  input {
+    width: calc((100% / 2) - 5px);
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 10px;
+  }
 
-    .leftPanel {        
-        display: flex;
-        align-items: center;
-        text-align: center;
-        padding: 10px;
-        width: 20%;
-        border-radius: 10px;
-            padding: 10px;
-            border: 1px solid grey;
-      
-    }
+  select {
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 10px;
+  }
 
-    .form {
-        width: 50%;    
-        
-        .flexForm {
-            display: flex;
-            justify-content: space-between;
-        }
+  textarea {
+    width: 100%;
+    margin-bottom: 5px;
+    resize: none;
+    border-radius: 10px;
+    padding: 10px;
+  }
 
-        input {
-            width: 49%;
-            margin-bottom: 5px;
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        select {
-            width: 100%;
-            margin-bottom: 5px;
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        textarea {
-            width: 100%;
-            margin-bottom: 5px;
-            resize: none;
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        button {
-            width: 40%;
-            border-radius: 10px;
-            padding: 10px;
-        }
-    }
-    
-    .rightPanel {        
-        width: 20%;   
-      
-        .imageContainer {
-            width: 100%;
-            height: 100%;
-
-            img {
-                height: 100%;
-                object-fit: cover;
-                object-position: right;
-                border-radius: 10px;
-               
-                
-            }
-        }
-
-    }
+  button {
+    width: 40%;
+    border-radius: 10px;
+    padding: 10px;
+  }
 }
+// Styling the image on the right
+.rightpanel {
+  width: 20%;
 
-
+  img {
+    object-fit: cover;
+    object-position: right;
+    border-radius: 10px;
+  }
+}
+//----------------------Here ends the for section styling--------------//

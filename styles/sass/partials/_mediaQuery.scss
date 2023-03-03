@@ -1,43 +1,44 @@
-
-/* Portrait tablet and small desktops */
-@media (max-width: 940px) {
-}
-
-/* Landscape phone to portrait tablet */
+//----------------------Here starts the media query--------------//
+//Only one breakpoint need
 @media (max-width: 768px) {
-    header {
-        p {
-            font-size: 1rem;
-        }
+  // Header media query
+  //Reducing the size of the text
+  header {
+    p {
+      font-size: 1rem;
     }
+  }
+  // End on header media query
 
-    .userForm {
-        padding: 0;
+  //Form section media query
+  .userForm {
+    padding: 0;
+  }
+  .flexUserForm {
+    // Using flex to display element on top of each other
+    flex-direction: column;
+    .leftPanel,
+    .form,
+    .rightpanel {
+      width: 100%;
+      margin-bottom: 50px;
     }
-    .flexUserForm {
-        flex-direction: column;
-
-        .leftPanel, .form, .rightPanel {
-            width: 100%;
-            margin-bottom: 50px;
-        }
-
-        .flexForm {
-            flex-direction: column;
-
-            input {
-                width: 100%;
-            }            
-        }   
-        
-        .form {
-            button {
-                width: 100%;
-            }
-        }
-    }    
+    .leftPanel{
+      background-size: auto;
+      background-position: center;
+    }
+    //Using flex to display name and email on top of each other
+    .flexForm {
+      flex-direction: column;
+      input {
+        width: 100%;
+      }
+    }
+    .form {
+      button {
+        width: 100%;
+      }
+    }
+  }
 }
-
-/* Landscape phones and down */
-@media (max-width: 480px) {
-}
+//----------------------Here ends the media query--------------//

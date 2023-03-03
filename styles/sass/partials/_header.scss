@@ -1,25 +1,23 @@
+// -----------------Here starts the header styling---------------//
 
-header {    
-    background-image: url("../assets/delfi-de-la-rua-vfzfavUZmfc-unsplash.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 50px;
-
-    h1 {
-        font-size: 6rem;
-        font-family: skyfont;
-        letter-spacing: 5px;
-       
-    }
-
-    p {
-        font-size: 2rem;
-    }    
+//Global section styling
+header {
+  background-image: url("../assets/delfi-de-la-rua-vfzfavUZmfc-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 50px;
+  h1 {
+    font-size: 6rem;
+    font-family: skyfont;
+    letter-spacing: 5px;
+  }
+  p {
+    font-size: 2rem;
+  }
 }
-
-
+// -----------------Here ends the header styling---------------//

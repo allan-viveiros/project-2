@@ -294,7 +294,8 @@ header p {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.flexUserForm .leftPanel {
+
+.leftPanel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,16 +303,18 @@ header p {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  padding: 10px;
+  font-weight: bold;
   width: 20%;
   border-radius: 10px;
   padding: 10px;
-  border: 1px solid grey;
+  background-image: url("../assets/passport2.png");
+  background-position: center;
 }
-.flexUserForm .form {
+
+.form {
   width: 50%;
 }
-.flexUserForm .form .flexForm {
+.form .flexForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -319,39 +322,35 @@ header p {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.flexUserForm .form input {
-  width: 49%;
+.form input {
+  width: calc(50% - 5px);
   margin-bottom: 5px;
   border-radius: 10px;
   padding: 10px;
 }
-.flexUserForm .form select {
+.form select {
   width: 100%;
   margin-bottom: 5px;
   border-radius: 10px;
   padding: 10px;
 }
-.flexUserForm .form textarea {
+.form textarea {
   width: 100%;
   margin-bottom: 5px;
   resize: none;
   border-radius: 10px;
   padding: 10px;
 }
-.flexUserForm .form button {
+.form button {
   width: 40%;
   border-radius: 10px;
   padding: 10px;
 }
-.flexUserForm .rightPanel {
+
+.rightpanel {
   width: 20%;
 }
-.flexUserForm .rightPanel .imageContainer {
-  width: 100%;
-  height: 100%;
-}
-.flexUserForm .rightPanel .imageContainer img {
-  height: 100%;
+.rightpanel img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: right;
@@ -381,7 +380,7 @@ header p {
 .userPost ul li {
   width: calc(33.3333333333% - 30px);
   min-width: 300px;
-  padding: 10px;
+  padding: 15px;
   border-radius: 20px;
   background-color: rgb(233, 233, 233);
   height: -webkit-fit-content;
@@ -392,7 +391,7 @@ header p {
   margin-bottom: 30px;
   background-image: url("../assets/passport.png");
 }
-.userPost ul li .flexTop {
+.userPost .flexTop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -400,16 +399,7 @@ header p {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.userPost ul li .flexTop h2 {
-  padding: 20px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  font-size: 2rem;
-  text-align: right;
-  font-family: "Caveat", cursive;
-}
-.userPost ul li .flexTop figure {
+.userPost .flexTop figure {
   width: 50px;
   height: 70px;
   display: -webkit-box;
@@ -424,15 +414,29 @@ header p {
           align-items: center;
   margin: 10px 0 20px 20px;
 }
-.userPost ul li .flexTop figure figcaption {
+.userPost .flexTop figure figcaption {
   position: relative;
   top: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
-.userPost ul li .flexTop figure img {
+.userPost .flexTop figure img {
   border: 1px solid #706563;
   border-radius: 50%;
+  padding: 3px;
 }
-.userPost ul li .divFlexLike {
+.userPost .flexTop h2 {
+  padding: 20px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 3rem;
+  text-align: right;
+  font-family: "Caveat", cursive;
+  text-shadow: 1px 1px 5px #ab7f4d;
+}
+.userPost .divFlexLike {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -443,7 +447,7 @@ header p {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.userPost ul li .divFlexLike span {
+.userPost .divFlexLike span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -455,16 +459,19 @@ header p {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  font-weight: bold;
 }
-.userPost ul li .divFlexLike span i {
+.userPost .divFlexLike span i {
   cursor: pointer;
+  font-size: 1.3rem;
 }
-.userPost ul li .comment {
-  border: 1px solid red;
-  padding: 20px;
+.userPost .comment {
+  border: 3px solid #ab7f4d;
+  padding: 15px;
   width: 100%;
   background-color: white;
   border-radius: 20px;
+  text-align: center;
 }
 
 footer {
@@ -474,8 +481,6 @@ footer {
   padding: 10px;
 }
 
-/* Portrait tablet and small desktops */
-/* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
   header p {
     font-size: 1rem;
@@ -489,9 +494,15 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .flexUserForm .leftPanel, .flexUserForm .form, .flexUserForm .rightPanel {
+  .flexUserForm .leftPanel,
+  .flexUserForm .form,
+  .flexUserForm .rightpanel {
     width: 100%;
     margin-bottom: 50px;
+  }
+  .flexUserForm .leftPanel {
+    background-size: auto;
+    background-position: center;
   }
   .flexUserForm .flexForm {
     -webkit-box-orient: vertical;
@@ -506,4 +517,3 @@ footer {
     width: 100%;
   }
 }
-/* Landscape phones and down */
