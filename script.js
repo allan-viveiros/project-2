@@ -11,11 +11,12 @@ import {
   ref,
   onValue,
   push,
+  update
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 // Initialize Database content using the configured app
 const database = getDatabase(app);
-//Cretae a specific reference to the root of my db
+//Create a specific reference to the root of my db
 //This is the representation of our DB (this is how we hook into the DB and update and interact with it)
 const dbRef = ref(database);
 const dbUsers = ref(database, `/users`);
@@ -42,13 +43,13 @@ onValue(dbRef, function (data) {
   if (data.exists()) {
     const userCard = data.val().users;
     //console.log(userCard)
-    // clear the exisitng ul on the page
+    // clear the existing ul on the page
     ulElement.innerHTML = "";
 
     // Step 4 -> Loop through the users object.
     // For each new user in the database:
     for (let dataItem in userCard) {
-      console.log(dataItem);
+      // console.log(dataItem);
 
       // Create a new LI with:
       const newLi = document.createElement("li");
@@ -67,36 +68,44 @@ onValue(dbRef, function (data) {
       const country = document.createElement("h2");
       country.textContent = `${userCard[dataItem].country}`;
 
+      const divFlexLike = document.createElement("div");
+      divFlexLike.className = "divFlexLike";
+
       const dateTime = document.createElement("p");
       dateTime.className = "dateTime";
       dateTime.textContent = `${userCard[dataItem].dateTime}`;
+
+      const likeButton = document.createElement("span");
+      likeButton.id = `${dataItem}`;
+      likeButton.innerHTML = `<i class="fa fa-thumbs-up"></i> ${userCard[dataItem].like}`;
 
       const comments = document.createElement("p");
       comments.className = "comment";
       comments.textContent = `${userCard[dataItem].comment}`;
 
-      newLi.append(divFlex, dateTime, comments);
+      newLi.append(divFlex, divFlexLike, comments);      
       divFlex.append(figure, country);
+      divFlexLike.append(dateTime, likeButton);
       figure.append(image, figCaption);
 
       // .append() the new LI into the UL on the page.
       ulElement.appendChild(newLi);
     }
   }
-  //console.log(userCard[dataItem]);
+ 
 });
 
 form.addEventListener("submit", function (event) {
         event.preventDefault();
-        console.log(userName.value);
-  if (userName.value.trim() && userComments.value.trim()) {
+        
+  if (userName.value.trim() && userComments.value.trim() && countries.value !== "none" && userEmail.value.trim()) {
     let current = new Date();
     current = current.toString();
     let day = current.slice(8, 10);
     let month = current.slice(4, 7);
     let year = current.slice(11, 15);
     let hour = current.slice(16, 24);
-    console.log(userName.value);
+    
     const newPost = {
       avatar: "./assets/anonymous.png",
       comment: userComments.value,
@@ -104,17 +113,44 @@ form.addEventListener("submit", function (event) {
       dateTime: `${month} ${day}, ${year}, ${hour}`,
       email: userEmail.value,
       name: userName.value,
+      like: 0
     };
     push(dbUsers,newPost);
-  } else {
-        alert("Please fill all required fields!")
-}
+  } else if(!userName.value.trim()) {
+      alert("Please fill the user name!");
+  } else if(!userEmail.value.trim()) {
+      alert("Please fill the email address!");
+  } else if(countries.value === "none") {
+      alert("Please select the country");
+  } else if(!userComments.value.trim()) {
+    alert("Please fill the comment section!");
+  }
+
     userName.value = "";
     userEmail.value = "";
-    countries.value = "Australia";
+    countries.value = "none";
     userComments.value = "";
 
 });
 // Step 5 -> Add event listener for the form submit button, to get the inputs and shows on the proper section
 // Prevent the submit from causing the page to refresh
 // Get what the user wrote in the all inputs.
+
+ulElement.addEventListener("click", function(e) {
+  // console.log(e.target.parentElement.innerText);
+
+  if(e.target.tagName === "I") {
+    const key = e.target.parentElement.id;
+    let counter = parseInt(e.target.parentElement.innerText);
+
+    console.log(typeof counter)
+    counter += 1;
+
+    const newLike = {
+      like : counter
+    }
+
+    const updateRef = ref(database, `/users/${key}`);
+    update(updateRef, newLike);
+  }
+});

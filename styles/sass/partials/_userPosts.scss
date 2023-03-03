@@ -58,6 +58,23 @@
                 }
             }
 
+            .divFlexLike {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 5px;
+                    align-items: flex-end;
+                    
+                    i {
+                        cursor: pointer;
+                    }
+                }
+            }
+            
             .comment {
                  border: 1px solid red;
                 padding: 20px;                
