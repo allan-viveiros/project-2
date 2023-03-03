@@ -26,3 +26,13 @@ img {
     height: 100%;
     width: 100%;
 }
+
+
+@font-face {
+    font-family: skyfont;
+    src: url("../assets/skyfont/Skyfont-NonCommercial.otf");
+}
+
+p, figcaption, input, select, textarea, button{
+    font-family: 'Maven Pro', sans-serif;
+}
