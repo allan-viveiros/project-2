@@ -347,10 +347,10 @@ header p {
   padding: 10px;
 }
 
-.rightpanel {
+.rightPanel {
   width: 20%;
 }
-.rightpanel img {
+.rightPanel img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: right;
