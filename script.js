@@ -12,7 +12,7 @@ import {
   onValue,
   push,
   update,
-  get
+  get,
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 // Initialize Database content using the configured app
@@ -43,69 +43,24 @@ const form = document.querySelector("form");
 onValue(dbRef, function (data) {
   if (data.exists()) {
     const userCard = data.val().users;
-
     // Clear all content in the UL on the page, so that we can update it with the current list of user's cards.
     ulElement.innerHTML = "";
-
     // Loop through the users object.
     // For each new user in the database:
-    for (let cardItem in userCard) { 
-      // console.log(userCard[cardItem]);
+    for (let cardItem in userCard) {
+      // Using our fillcard fucntion to build the card
       fillCards(userCard[cardItem], cardItem);
     }
-  }
-  else {
-    console.log("there is no cards to show!");
+    //If the database is empty, we display a message to the user
+  } else {
+    const message = document.createElement("p");
+    message.textContent =
+      "Please use the form below to create the first comment !";
+    const newLi = document.createElement("li");
+    newLi.appendChild(message);
+    ulElement.appendChild(newLi);
   }
 });
-
-function fillCards(cardsData, item) {
-    // console.log(cardsData, item);       
-    // Create a new LI with:
-    const newLi = document.createElement("li");
-    // Create a div that will contain the avatar, user name and country selected by the user. Giving this div a class
-    const divFlex = document.createElement("div");
-    divFlex.className = "flexTop";
-    // Create a figure that will contain the avatar image.
-    const figure = document.createElement("figure");
-    // Create a image to display the avatar image.
-    const image = document.createElement("img");
-    image.src = "./assets/anonymous.png";
-    image.alt = "User avatar";
-    // Create a figcaption that will contain the username.
-    const figCaption = document.createElement("figcaption");
-    figCaption.textContent = `${cardsData.name}`;
-    // Create a h2 that will contain the country name.
-    const country = document.createElement("h2");
-    country.textContent = `${cardsData.country}`;
-    // Create a div that will contain the date/time and like button. Adding a class on this div
-    const divFlexLike = document.createElement("div");
-    divFlexLike.className = "divFlexLike";
-    // Create a p that will contain the date and time .
-    const dateTime = document.createElement("p");
-    dateTime.className = "dateTime";
-    dateTime.textContent = `${cardsData.dateTime}`;
-    // Create a span that will contain the like button icon and counter.Adding it an id that we'll use for the click event. Update its inner html with the actual icon
-    const likeButton = document.createElement("span");
-    likeButton.id = `${item}`;
-    likeButton.innerHTML = `<i class="fa fa-thumbs-up" aria-label="like button"></i> ${cardsData.like}`;
-    // Create a p that will contain the comment .
-    const comments = document.createElement("p");
-    comments.className = "comment";
-    comments.textContent = `${cardsData.comment}`;
-
-    // Append divs and comment to the LI
-    newLi.append(divFlex, divFlexLike, comments);
-    //Append the figure and h2 to their parent div
-    divFlex.append(figure, country);
-    //Append the date/time and like to their parent div
-    divFlexLike.append(dateTime, likeButton);
-    // Append the user info to the figure
-    figure.append(image, figCaption);
-    // .append() the new LI into the UL on the page.
-    ulElement.appendChild(newLi);   
-}
-
 
 // Step 3 -> Add event listener for the form submit button, to get the inputs and shows on the proper section
 form.addEventListener("submit", function (event) {
@@ -135,18 +90,15 @@ form.addEventListener("submit", function (event) {
       name: userName.value,
       like: 0,
     };
-    // Push the new user object to the database
-    push(dbUsers, newPost)
-    .catch((error) => {
-      console.log(`Error: ${error}`);
+    // Push the new user object to the database, display the error in case of an error
+    push(dbUsers, newPost).catch((error) => {
+      alert(`Error: ${error}`);
     });
-
     // Reset every input after the submission
     userName.value = "";
     userEmail.value = "";
     countries.value = "none";
     userComments.value = "";
-
     // Display a message to the user if one of the input are not filled correctly
   } else if (!userName.value.trim()) {
     alert("Please provide your user name!");
@@ -159,7 +111,8 @@ form.addEventListener("submit", function (event) {
   }
 });
 
-// Step 4 -> Add event listener for the UL element (targeting the like button), to increase the number of like of the comment
+// Step 4 ->Like button setup:
+// Add event listener for the UL element (targeting the like button), to increase the number of like of the comment
 ulElement.addEventListener("click", function (e) {
   // Checking if the click happen on the button
   if (e.target.tagName === "I") {
@@ -180,41 +133,91 @@ ulElement.addEventListener("click", function (e) {
   }
 });
 
-
+// Step 5 -> Search bar setup
+// Adding a variable for the search and clear button
 const buttonSearch = document.querySelector("#search");
 const buttonClear = document.querySelector("#clear");
-
-buttonSearch.addEventListener("click", function() {
+// Adding an event listener on the search button
+buttonSearch.addEventListener("click", function () {
+  // Adding a variable for the country selected by the user
   const searchCountry = document.querySelector("#searchCountry").value;
-
+  // Creating a database reference to use firebase and get the data
   const getCountry = ref(database, `/users`);
   get(getCountry)
-  .then(snapshot => {  
-    const data = snapshot.val();
-    let count = 0;
-
-    ulElement.innerHTML = "";    
-
-    for(let item in data) {      
-      if(data[item].country === searchCountry) {
-        count += 1;
-        fillCards(data[item], item);
+    .then((snapshot) => {
+      // Adding a data variable to define the database object
+      const data = snapshot.val();
+      let count = 0;
+      // Clearing the old cards
+      ulElement.innerHTML = "";
+      // Looping through every object and check if one has the country value selected ny the user
+      for (let item in data) {
+        if (data[item].country === searchCountry) {
+          // If one object has a country value that match the user search, we use our function to build the user's card
+          count += 1;
+          fillCards(data[item], item);
+        }
       }
-    }
-
-    if(count === 0) {
-      alert(`There is no cards to show for ${searchCountry}`);
-      location.reload();
-    }
-   
-  })
-  .catch((error) => {
-    console.log(`Error: ${error}`);
-  });
+      // If not object has a country value that match the user search then we alert the user
+      if (count === 0) {
+        alert(`There is no cards to show for ${searchCountry}`);
+        // Refresh the page
+        location.reload();
+      }
+    })
+    .catch((error) => {
+      alert(`Error: ${error}`);
+    });
 });
 
-buttonClear.addEventListener("click", function() {
+// Add an event listener on the clear button to reload the page
+buttonClear.addEventListener("click", function () {
   location.reload();
 });
 
+// Creating a function that will build the card.
+function fillCards(cardsData, item) {
+  // Create a new LI with:
+  const newLi = document.createElement("li");
+  // Create a div that will contain the avatar, user name and country selected by the user. Giving this div a class
+  const divFlex = document.createElement("div");
+  divFlex.className = "flexTop";
+  // Create a figure that will contain the avatar image.
+  const figure = document.createElement("figure");
+  // Create a image to display the avatar image.
+  const image = document.createElement("img");
+  image.src = "./assets/anonymous.png";
+  image.alt = "User avatar";
+  // Create a figcaption that will contain the username.
+  const figCaption = document.createElement("figcaption");
+  figCaption.textContent = `${cardsData.name}`;
+  // Create a h2 that will contain the country name.
+  const country = document.createElement("h2");
+  country.textContent = `${cardsData.country}`;
+  // Create a div that will contain the date/time and like button. Adding a class on this div
+  const divFlexLike = document.createElement("div");
+  divFlexLike.className = "divFlexLike";
+  // Create a p that will contain the date and time .
+  const dateTime = document.createElement("p");
+  dateTime.className = "dateTime";
+  dateTime.textContent = `${cardsData.dateTime}`;
+  // Create a span that will contain the like button icon and counter.Adding it an id that we'll use for the click event. Update its inner html with the actual icon
+  const likeButton = document.createElement("span");
+  likeButton.id = `${item}`;
+  likeButton.innerHTML = `<i class="fa fa-thumbs-up" aria-label="like button"></i> ${cardsData.like}`;
+  // Create a p that will contain the comment .
+  const comments = document.createElement("p");
+  comments.className = "comment";
+  comments.textContent = `${cardsData.comment}`;
 
+  // Append divs and comment to the LI
+  newLi.append(divFlex, divFlexLike, comments);
+  //Append the figure and h2 to their parent div
+  divFlex.append(figure, country);
+  //Append the date/time and like to their parent div
+  divFlexLike.append(dateTime, likeButton);
+  // Append the user info to the figure
+  figure.append(image, figCaption);
+  // .append() the new LI into the UL on the page.
+  ulElement.appendChild(newLi);
+}

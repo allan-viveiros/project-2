@@ -358,6 +358,28 @@ header p {
   border-radius: 10px;
 }
 
+.flexSearchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+.flexSearchBar select {
+  border-radius: 10px;
+  padding: 10px;
+}
+.flexSearchBar button {
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 5px;
+}
+
 .userPost {
   padding: 50px 0;
 }
@@ -391,7 +413,8 @@ header p {
   margin-bottom: 30px;
   background-image: url("../assets/passport.png");
 }
-.userPost .flexTop {
+
+.flexTop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -399,7 +422,7 @@ header p {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.userPost .flexTop figure {
+.flexTop figure {
   width: 50px;
   height: 70px;
   display: -webkit-box;
@@ -414,19 +437,19 @@ header p {
           align-items: center;
   margin: 10px 0 20px 20px;
 }
-.userPost .flexTop figure figcaption {
+.flexTop figure figcaption {
   position: relative;
   top: 5px;
   text-transform: capitalize;
   font-weight: bold;
   font-size: 1.2rem;
 }
-.userPost .flexTop figure img {
+.flexTop figure img {
   border: 1px solid #706563;
   border-radius: 50%;
   padding: 3px;
 }
-.userPost .flexTop h2 {
+.flexTop h2 {
   padding: 20px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -436,7 +459,8 @@ header p {
   font-family: "Caveat", cursive;
   text-shadow: 1px 1px 5px #ab7f4d;
 }
-.userPost .divFlexLike {
+
+.divFlexLike {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -447,7 +471,7 @@ header p {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.userPost .divFlexLike span {
+.divFlexLike span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -461,11 +485,12 @@ header p {
           align-items: flex-end;
   font-weight: bold;
 }
-.userPost .divFlexLike span i {
+.divFlexLike span i {
   cursor: pointer;
   font-size: 1.3rem;
 }
-.userPost .comment {
+
+.comment {
   border: 3px solid #ab7f4d;
   padding: 15px;
   width: 100%;
@@ -484,6 +509,16 @@ footer {
 @media (max-width: 768px) {
   header p {
     font-size: 1rem;
+  }
+  .flexSearchBar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .flexSearchBar button {
+    width: 100%;
+    margin-top: 10px;
   }
   .userPost {
     padding: 50px 0;

@@ -1,5 +1,21 @@
 // -----------------Here starts the first section (user's card styling---------------//
 
+// Styling the search bar
+.flexSearchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  select{
+    border-radius: 10px;
+    padding: 10px;
+  }
+  button{
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 5px;
+  }
+}
 // Global styling of the section
 .userPost {
   // background-color: #3D5467;
@@ -27,75 +43,75 @@
       background-image: url("../assets/passport.png");
     }
   }
+  //Styling the search bar
+}
+// Using flex to display avatar+ user name and country side by side
+.flexTop {
+  display: flex;
+  justify-content: space-between;
 
-  // Using flex to display avatar+ user name and country side by side
-  .flexTop {
+  figure {
+    width: 50px;
+    height: 70px;
     display: flex;
-    justify-content: space-between;
-
-    figure {
-      width: 50px;
-      height: 70px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 10px 0 20px 20px;
-      //   Styling user name
-      figcaption {
-        position: relative;
-        top: 5px;
-        text-transform: capitalize;
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-      // Styling the avatar
-      img {
-        border: 1px solid #706563;
-        border-radius: 50%;
-        padding: 3px;
-      }
-    }
-    // Styling the country name
-    h2 {
-      padding: 20px;
-      height: fit-content;
-      font-size: 3rem;
-      text-align: right;
-      font-family: "Caveat", cursive;
-      text-shadow: 1px 1px 5px #ab7f4d;
-    }
-  }
-
-  // Styling the date/time and like button part
-  // Flex to display them side by side
-  .divFlexLike {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-
-    // Flex to display like button and like counter on top of each other
-    span {
-      display: flex;
-      flex-direction: column;
-      margin-left: 5px;
-      align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0 20px 20px;
+    //   Styling user name
+    figcaption {
+      position: relative;
+      top: 5px;
+      text-transform: capitalize;
       font-weight: bold;
-
-      i {
-        cursor: pointer;
-        font-size: 1.3rem;
-      }
+      font-size: 1.2rem;
+    }
+    // Styling the avatar
+    img {
+      border: 1px solid #706563;
+      border-radius: 50%;
+      padding: 3px;
     }
   }
-  // Styling the comment section
-  .comment {
-    border: 3px solid #ab7f4d;
-    padding: 15px;
-    width: 100%;
-    background-color: white;
-    border-radius: 20px;
-    text-align: center;
+  // Styling the country name
+  h2 {
+    padding: 20px;
+    height: fit-content;
+    font-size: 3rem;
+    text-align: right;
+    font-family: "Caveat", cursive;
+    text-shadow: 1px 1px 5px #ab7f4d;
   }
+}
+
+// Styling the date/time and like button part
+// Flex to display them side by side
+.divFlexLike {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  // Flex to display like button and like counter on top of each other
+  span {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    align-items: flex-end;
+    font-weight: bold;
+
+    i {
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+  }
+}
+// Styling the comment section
+.comment {
+  border: 3px solid #ab7f4d;
+  padding: 15px;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
 }
 
 // -----------------Here ends the first section (user's card styling---------------//

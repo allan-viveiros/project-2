@@ -10,6 +10,14 @@
   }
   // End on header media query
 
+// User post section media query
+.flexSearchBar{
+  flex-direction: column;
+  button{
+    width: 100%;
+    margin-top: 10px;
+  }
+}
   .userPost {
     // background-color: #3D5467;
     padding: 50px 0;
