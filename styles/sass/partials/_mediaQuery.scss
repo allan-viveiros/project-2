@@ -10,6 +10,27 @@
   }
   // End on header media query
 
+// User post section media query
+.flexSearchBar{
+  flex-direction: column;
+  button{
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+  .userPost {
+    // background-color: #3D5467;
+    padding: 50px 0;
+    // Using flex to display every card side by side
+    ul {
+      justify-content: space-around;  
+      //Styling the card
+      li {
+        width: 80%;
+      }
+    }
+  }
+
   //Form section media query
   .userForm {
     padding: 0;
@@ -19,7 +40,7 @@
     flex-direction: column;
     .leftPanel,
     .form,
-    .rightpanel {
+    .rightPanel {
       width: 100%;
       margin-bottom: 50px;
     }
