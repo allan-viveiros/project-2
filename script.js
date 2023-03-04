@@ -140,7 +140,7 @@ const buttonClear = document.querySelector("#clear");
 // Adding an event listener on the search button
 buttonSearch.addEventListener("click", function () {
   // Adding a variable for the country selected by the user
-  const searchCountry = document.querySelector("#searchCountry").value;
+  const searchCountry = document.querySelector("#searchCountry");
   // Creating a database reference to use firebase and get the data
   const getCountry = ref(database, `/users`);
   get(getCountry)
@@ -152,7 +152,7 @@ buttonSearch.addEventListener("click", function () {
       ulElement.innerHTML = "";
       // Looping through every object and check if one has the country value selected ny the user
       for (let item in data) {
-        if (data[item].country === searchCountry) {
+        if (data[item].country === searchCountry.value) {
           // If one object has a country value that match the user search, we use our function to build the user's card
           count += 1;
           fillCards(data[item], item);
@@ -160,7 +160,9 @@ buttonSearch.addEventListener("click", function () {
       }
       // If not object has a country value that match the user search then we alert the user
       if (count === 0) {
-        alert(`There is no cards to show for ${searchCountry}`);
+        alert(`There is no cards to show for ${searchCountry.value}`);
+
+        searchCountry.value = "none";
         // Refresh the page
         location.reload();
       }
@@ -172,6 +174,7 @@ buttonSearch.addEventListener("click", function () {
 
 // Add an event listener on the clear button to reload the page
 buttonClear.addEventListener("click", function () {
+  searchCountry.value = "none";
   location.reload();
 });
 

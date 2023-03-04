@@ -516,7 +516,7 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .flexSearchBar button {
+  .flexSearchBar button, .flexSearchBar select {
     width: 100%;
     margin-top: 10px;
   }

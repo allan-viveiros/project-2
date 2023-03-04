@@ -13,7 +13,7 @@
 // User post section media query
 .flexSearchBar{
   flex-direction: column;
-  button{
+  button, select {
     width: 100%;
     margin-top: 10px;
   }
