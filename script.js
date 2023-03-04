@@ -217,36 +217,4 @@ buttonClear.addEventListener("click", function() {
   location.reload();
 });
 
-// ////////************ SECOND PART  */
-// const getCountry = ref(database, `/users`);
-// get(getCountry)
-// .then(snapshot => {  
-//   const data = snapshot.val();
-//   // console.log(data);
 
-//   // ulElement.innerHTML = "";
-
-//   for(let item in data) {
-//     // console.log(data[item].country);
-//     if(data[item].country === "Australia") {
-//       const newTodo = {
-//         avatar: data[item].avatar,
-//         comment: data[item].comment,
-//         like: data[item].like
-//       }
-
-//       // console.log(newTodo);
-//     }
-//   }
-// })
-// .catch((error) => {
-//   console.log(`Error: ${error}`);
-// });
-
-// TODO
-
-// -- On scripts.js
-// 	-- try handle eros with throw instead if
-	
-// -- HTML
-// 	-- Review semantic elements 
