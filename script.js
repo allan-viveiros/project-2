@@ -38,6 +38,53 @@ const userComments = document.querySelector("#userComments");
 // One that points to the form containing all those above data.
 const form = document.querySelector("form");
 
+// Creating a function that will build the card.
+function fillCards(cardsData, item) {
+  // Create a new LI with:
+  const newLi = document.createElement("li");
+  // Create a div that will contain the avatar, user name and country selected by the user. Giving this div a class
+  const divFlex = document.createElement("div");
+  divFlex.className = "flexTop";
+  // Create a figure that will contain the avatar image.
+  const figure = document.createElement("figure");
+  // Create a image to display the avatar image.
+  const image = document.createElement("img");
+  image.src = "./assets/anonymous.png";
+  image.alt = "User avatar";
+  // Create a figcaption that will contain the username.
+  const figCaption = document.createElement("figcaption");
+  figCaption.textContent = `${cardsData.name}`;
+  // Create a h2 that will contain the country name.
+  const country = document.createElement("h2");
+  country.textContent = `${cardsData.country}`;
+  // Create a div that will contain the date/time and like button. Adding a class on this div
+  const divFlexLike = document.createElement("div");
+  divFlexLike.className = "divFlexLike";
+  // Create a p that will contain the date and time .
+  const dateTime = document.createElement("p");
+  dateTime.className = "dateTime";
+  dateTime.textContent = `${cardsData.dateTime}`;
+  // Create a span that will contain the like button icon and counter.Adding it an id that we'll use for the click event. Update its inner html with the actual icon
+  const likeButton = document.createElement("span");
+  likeButton.id = `${item}`;
+  likeButton.innerHTML = `<i class="fa fa-thumbs-up" aria-label="like button"></i> ${cardsData.like}`;
+  // Create a p that will contain the comment .
+  const comments = document.createElement("p");
+  comments.className = "comment";
+  comments.textContent = `${cardsData.comment}`;
+
+  // Append divs and comment to the LI
+  newLi.append(divFlex, divFlexLike, comments);
+  //Append the figure and h2 to their parent div
+  divFlex.append(figure, country);
+  //Append the date/time and like to their parent div
+  divFlexLike.append(dateTime, likeButton);
+  // Append the user info to the figure
+  figure.append(image, figCaption);
+  // .append() the new LI into the UL on the page.
+  ulElement.appendChild(newLi);
+}
+
 // Step 2 -> Call onValue() to get a snapshot of the database, and to get a new snapshot any time the data changes/updates.
 
 onValue(dbRef, function (data) {
@@ -140,7 +187,7 @@ const buttonClear = document.querySelector("#clear");
 // Adding an event listener on the search button
 buttonSearch.addEventListener("click", function () {
   // Adding a variable for the country selected by the user
-  const searchCountry = document.querySelector("#searchCountry").value;
+  const searchCountry = document.querySelector("#searchCountry");
   // Creating a database reference to use firebase and get the data
   const getCountry = ref(database, `/users`);
   get(getCountry)
@@ -152,7 +199,7 @@ buttonSearch.addEventListener("click", function () {
       ulElement.innerHTML = "";
       // Looping through every object and check if one has the country value selected ny the user
       for (let item in data) {
-        if (data[item].country === searchCountry) {
+        if (data[item].country === searchCountry.value) {
           // If one object has a country value that match the user search, we use our function to build the user's card
           count += 1;
           fillCards(data[item], item);
@@ -160,7 +207,9 @@ buttonSearch.addEventListener("click", function () {
       }
       // If not object has a country value that match the user search then we alert the user
       if (count === 0) {
-        alert(`There is no cards to show for ${searchCountry}`);
+        alert(`There is no cards to show for ${searchCountry.value}`);
+
+        searchCountry.value = "none";
         // Refresh the page
         location.reload();
       }
@@ -172,52 +221,7 @@ buttonSearch.addEventListener("click", function () {
 
 // Add an event listener on the clear button to reload the page
 buttonClear.addEventListener("click", function () {
+  searchCountry.value = "none";
   location.reload();
 });
 
-// Creating a function that will build the card.
-function fillCards(cardsData, item) {
-  // Create a new LI with:
-  const newLi = document.createElement("li");
-  // Create a div that will contain the avatar, user name and country selected by the user. Giving this div a class
-  const divFlex = document.createElement("div");
-  divFlex.className = "flexTop";
-  // Create a figure that will contain the avatar image.
-  const figure = document.createElement("figure");
-  // Create a image to display the avatar image.
-  const image = document.createElement("img");
-  image.src = "./assets/anonymous.png";
-  image.alt = "User avatar";
-  // Create a figcaption that will contain the username.
-  const figCaption = document.createElement("figcaption");
-  figCaption.textContent = `${cardsData.name}`;
-  // Create a h2 that will contain the country name.
-  const country = document.createElement("h2");
-  country.textContent = `${cardsData.country}`;
-  // Create a div that will contain the date/time and like button. Adding a class on this div
-  const divFlexLike = document.createElement("div");
-  divFlexLike.className = "divFlexLike";
-  // Create a p that will contain the date and time .
-  const dateTime = document.createElement("p");
-  dateTime.className = "dateTime";
-  dateTime.textContent = `${cardsData.dateTime}`;
-  // Create a span that will contain the like button icon and counter.Adding it an id that we'll use for the click event. Update its inner html with the actual icon
-  const likeButton = document.createElement("span");
-  likeButton.id = `${item}`;
-  likeButton.innerHTML = `<i class="fa fa-thumbs-up" aria-label="like button"></i> ${cardsData.like}`;
-  // Create a p that will contain the comment .
-  const comments = document.createElement("p");
-  comments.className = "comment";
-  comments.textContent = `${cardsData.comment}`;
-
-  // Append divs and comment to the LI
-  newLi.append(divFlex, divFlexLike, comments);
-  //Append the figure and h2 to their parent div
-  divFlex.append(figure, country);
-  //Append the date/time and like to their parent div
-  divFlexLike.append(dateTime, likeButton);
-  // Append the user info to the figure
-  figure.append(image, figCaption);
-  // .append() the new LI into the UL on the page.
-  ulElement.appendChild(newLi);
-}
