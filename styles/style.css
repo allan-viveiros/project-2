@@ -518,7 +518,7 @@ footer {
   }
   .flexSearchBar button, .flexSearchBar select {
     width: 100%;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
   }
   .userPost {
     padding: 50px 0;
